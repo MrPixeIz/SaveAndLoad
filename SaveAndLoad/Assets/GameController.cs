@@ -98,29 +98,33 @@ public class GameController : MonoBehaviour
     }
     public void AddWeaponAttack()
     {
-        weapons[indexCourant].weaponAttack++;
+        if (weaponNumber != 0)
+        {
+            weapons[indexCourant].weaponAttack++;
+        }
+
     }
     public void NextWeapon()
     {
-        if (indexCourant == weapons.Count-1)
+        if (indexCourant == 0)
+        {
+            indexCourant = weapons.Count - 1;
+        }
+        else
+        {
+            indexCourant--;
+        }
+
+    }
+    public void PerviousWeapon()
+    {
+        if (indexCourant == weapons.Count - 1)
         {
             indexCourant = 0;
         }
         else
         {
             indexCourant++;
-        }
-
-    }
-    public void PerviousWeapon()
-    {
-        if (indexCourant == 0)
-        {
-            indexCourant = weapons.Count-1;
-        }
-        else
-        {
-            indexCourant--;
         }
     }
 
